@@ -1,8 +1,16 @@
 from fastapi import FastAPI
 
-app = FastAPI()
+from api.api import api_router
 
 
-@app.get("/hello/{name}")
-async def get_stock_quotes(name: str):
-    return {"message": f"Hello {name}"}
+def include_routes(application: FastAPI):
+    application.include_router(api_router)
+
+
+def start_app() -> FastAPI:
+    application = FastAPI()
+    include_routes(application)
+    return application
+
+
+app = start_app()
