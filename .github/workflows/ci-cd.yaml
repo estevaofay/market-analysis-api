@@ -1,0 +1,32 @@
+name: CI/CD
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [ opened, synchronize, reopened ]
+  push:
+    branches:
+      - main
+
+env:
+  SERVICE_NAME: stock-quote-service
+
+jobs:
+  ci:
+    name: Continuous Integration
+    runs-on: ubuntu-20.04
+    environment: dev
+    container: python:3.10.4-slim-buster
+    steps:
+      - uses: actions/checkout@v3
+        name: Checkout ${{ github.repository }}
+      - name: Install dependencies
+        run: |
+          apt-get update
+          apt-get -y install libpq-dev gcc
+          apt-get clean
+          python -m pip install --upgrade pip
+          python -m pip install -U setuptools pip
+          python -m pip install -r requirements.txt
+      - name: Run tests
+        run: python -m pytest --verbose
