@@ -1,6 +1,7 @@
 from typing import Generator
 
-from core.config import settings, SUPPORTED_DATA_PROVIDERS
+from core.environment_variables import settings
+from core.supported_data_providers import SUPPORTED_DATA_PROVIDERS
 from remote.data_provider.data_provider import DataProvider
 
 
