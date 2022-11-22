@@ -13,7 +13,7 @@ class AlphaVantageDataProvider(DataProvider):
         data = {
             "provider": "Alpha Vantage",
             "price": client_response_data['05. price'],
-            "ticker": client_response_data['01. symbol'],
-            "currency": client_response_data['11. currency']
+            "currency": client_response_data['currency'],
+            "ticker": client_response_data['ticker']
         }
         return StockPriceInformation(**data)
