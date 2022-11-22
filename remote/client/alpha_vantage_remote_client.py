@@ -12,7 +12,7 @@ class AlphaVantageRemoteClient(RemoteClient):
     def get_stock_price_information(self, ticker: str):
         time_series: TimeSeries = TimeSeries(key=settings.ALPHA_VANTAGE_API_KEY)
         fundamental_company_data: FundamentalData = FundamentalData(key=settings.ALPHA_VANTAGE_API_KEY)
-        data, _ = time_series.get_quote_endpoint(symbol=ticker)
+        timeseries_quote_data, _ = time_series.get_quote_endpoint(symbol=ticker)
         company_data_overview, _ = fundamental_Data.get_company_overview(symbol=ticker)
         return {
             "currency": company_data_overview['Currency'],
