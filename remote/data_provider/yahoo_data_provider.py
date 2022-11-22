@@ -13,6 +13,7 @@ class YahooDataProvider(DataProvider):
         data = {
             "provider": "Yahoo",
             "price": client_response_data['currentPrice'],
-            "ticker": client_response_data['symbol']
+            "ticker": client_response_data['symbol'],
+            "currency": client_response_data['financialCurrency']
         }
         return StockPriceInformation(**data)
