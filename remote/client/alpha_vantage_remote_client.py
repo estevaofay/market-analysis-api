@@ -19,3 +19,4 @@ class AlphaVantageRemoteClient(RemoteClient):
             "price": timeseries_quote_data['05. price'],
             "ticker": timeseries_quote_data['01. symbol']
         }
+        
