@@ -4,6 +4,7 @@ from schemas.stock_price_information import StockPriceInformation
 
 SAMPLE_TICKER = "TESTAMZN"
 SAMPLE_PRICE = 1337
+SAMPLE_CURRENCY = "USD"
 STOCK_QUOTES_ENDPOINT = "/stocks/{}/quotes"
 
 
@@ -12,6 +13,7 @@ class TestClient(RemoteClient):
         return {
             "provider": "ExampleDataProvider",
             "ticker": ticker,
+            "currency": SAMPLE_CURRENCY,
             "price": SAMPLE_PRICE
         }
 

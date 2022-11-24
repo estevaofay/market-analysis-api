@@ -15,3 +15,4 @@ def test_get_stock_quotes(client: TestClient, example_data_provider):
         assert "provider" in stock_info
         assert "price" in stock_info
         assert "ticker" in stock_info
+        assert "currency" in stock_info

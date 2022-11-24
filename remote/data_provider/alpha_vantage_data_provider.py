@@ -12,7 +12,8 @@ class AlphaVantageDataProvider(DataProvider):
     def map_client_response_to_schema(self, client_response_data) -> StockPriceInformation:
         data = {
             "provider": "Alpha Vantage",
-            "price": client_response_data['05. price'],
-            "ticker": client_response_data['01. symbol']
+            "price": client_response_data['price'],
+            "currency": client_response_data['currency'],
+            "ticker": client_response_data['ticker']
         }
         return StockPriceInformation(**data)
