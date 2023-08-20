@@ -32,6 +32,13 @@ jobs:
           python -m pip install -r requirements.txt
           python -m pip install pipx
       - uses: chartboost/ruff-action@v1  # RUFF requires pipx
+      - name: Check formatting with Black
+        run: black --diff --check --color --config pyproject.toml .
       - name: Run tests
         run: |
           python -m pytest --verbose --cov --cov-report=xml
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
