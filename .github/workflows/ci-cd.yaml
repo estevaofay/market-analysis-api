@@ -16,17 +16,17 @@ jobs:
     name: Continuous Integration
     runs-on: ubuntu-20.04
     environment: dev
-    container: python:3.11.4-slim-buster
     steps:
       - uses: actions/checkout@v3
         name: Checkout ${{ github.repository }}
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+          cache: 'pip'
       - name: Install dependencies
         run: |
-          apt-get update
-          apt-get -y install libpq-dev gcc
-          apt-get clean
           python -m pip install --upgrade pip
-          python -m pip install -U setuptools pip
           python -m pip install -r requirements.txt
           python -m pip install pipx
       - uses: chartboost/ruff-action@v1  # RUFF requires pipx
