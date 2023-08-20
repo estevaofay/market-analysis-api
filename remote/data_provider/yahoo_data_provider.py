@@ -5,15 +5,14 @@ from schemas.stock_price_information import StockPriceInformation
 
 
 class YahooDataProvider(DataProvider):
-
     def __init__(self):
         self.client: RemoteClient = YahooRemoteClient()
 
     def map_client_response_to_schema(self, client_response_data) -> StockPriceInformation:
         data = {
             "provider": "Yahoo",
-            "price": client_response_data['currentPrice'],
-            "ticker": client_response_data['symbol'],
-            "currency": client_response_data['financialCurrency']
+            "price": client_response_data["currentPrice"],
+            "ticker": client_response_data["symbol"],
+            "currency": client_response_data["financialCurrency"],
         }
         return StockPriceInformation(**data)

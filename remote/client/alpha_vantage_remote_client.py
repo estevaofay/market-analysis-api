@@ -6,7 +6,6 @@ from remote.client.remote_client import RemoteClient
 
 
 class AlphaVantageRemoteClient(RemoteClient):
-
     def __init__(self):
         self.api_key = settings.ALPHA_VANTAGE_API_KEY
 
@@ -16,7 +15,7 @@ class AlphaVantageRemoteClient(RemoteClient):
         timeseries_quote_data, _ = time_series.get_quote_endpoint(symbol=ticker)
         company_data_overview, _ = fundamental_company_data.get_company_overview(symbol=ticker)
         return {
-            "currency": company_data_overview['Currency'],
-            "price": timeseries_quote_data['05. price'],
-            "ticker": timeseries_quote_data['01. symbol']
+            "currency": company_data_overview["Currency"],
+            "price": timeseries_quote_data["05. price"],
+            "ticker": timeseries_quote_data["01. symbol"],
         }

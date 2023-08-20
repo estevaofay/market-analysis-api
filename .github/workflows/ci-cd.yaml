@@ -35,3 +35,5 @@ jobs:
       - name: Run tests
         run: |
           python -m pytest --verbose --cov --cov-report=xml
+      - name: Check formatting with Black
+        run: black --diff --check --color --config pyproject.toml .
