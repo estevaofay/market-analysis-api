@@ -16,7 +16,7 @@ jobs:
     name: Continuous Integration
     runs-on: ubuntu-20.04
     environment: dev
-    container: python:3.10.4-slim-buster
+    container: python:3.11.4-slim-buster
     steps:
       - uses: actions/checkout@v3
         name: Checkout ${{ github.repository }}

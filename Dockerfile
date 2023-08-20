@@ -1,5 +1,5 @@
-FROM python:3.10.4-slim-buster
-ENV DockerHome=/home/stock-quote-service
+FROM python:3.11.4-slim-buster
+ENV DockerHome=/home/market-analysis-api
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 RUN mkdir -p $DockerHome
