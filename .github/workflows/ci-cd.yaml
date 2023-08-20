@@ -19,6 +19,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         name: Checkout ${{ github.repository }}
+        with:
+          fetch-depth: 0
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
@@ -31,4 +33,5 @@ jobs:
           python -m pip install pipx
       - uses: chartboost/ruff-action@v1  # RUFF requires pipx
       - name: Run tests
-        run: python -m pytest --verbose
+        run: |
+          python -m pytest --verbose --cov --cov-report=xml
