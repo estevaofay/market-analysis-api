@@ -1,5 +1,6 @@
-from alpha_vantage.timeseries import TimeSeries
 from alpha_vantage.fundamentaldata import FundamentalData
+from alpha_vantage.timeseries import TimeSeries
+
 from core.environment_variables import settings
 from remote.client.remote_client import RemoteClient
 
@@ -19,4 +20,3 @@ class AlphaVantageRemoteClient(RemoteClient):
             "price": timeseries_quote_data['05. price'],
             "ticker": timeseries_quote_data['01. symbol']
         }
-        
