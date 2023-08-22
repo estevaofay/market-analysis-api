@@ -1,0 +1,1 @@
+EXCHANGES_ENDPOINT = "/exchanges"
