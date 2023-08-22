@@ -1,6 +1,6 @@
-# Stock Quotes service
+# Market Analysis API
 
-This is a small educational microservice that serves as an exercise to work with FastAPI and API data providers
+Uma API para analisar os mercados do Brasil e do mundo
 
 # Build
 
