@@ -1,5 +1,4 @@
-from fastapi import APIRouter, Request
-from starlette import status
+from fastapi import APIRouter, Request, status
 
 router = APIRouter()
 
